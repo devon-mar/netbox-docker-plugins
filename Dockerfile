@@ -1,4 +1,4 @@
-FROM netboxcommunity/netbox:v3.0.8
+FROM netboxcommunity/netbox:v3.0.9
 RUN apk add xmlsec gcc musl-dev
 RUN /opt/netbox/venv/bin/pip install --upgrade setuptools
 RUN /opt/netbox/venv/bin/pip install django3-auth-saml2 "netbox-plugin-auth-saml2>=2.3" "netbox-secretstore" netbox-lists
