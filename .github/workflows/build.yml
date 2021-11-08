@@ -29,5 +29,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          tags: devonm/netbox-docker-plugins:${{ steps.get_tag.outputs.TAG }}
+          tags: devonm/netbox:${{ steps.get_tag.outputs.TAG }}
           push: ${{ github.event_name == 'push' }}
