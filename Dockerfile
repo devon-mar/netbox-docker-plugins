@@ -1,4 +1,4 @@
-FROM netboxcommunity/netbox:v3.1.8
+FROM netboxcommunity/netbox:v3.1.9
 
 COPY configuration.py /etc/netbox/config/configuration.py
 RUN apk add --no-cache xmlsec \
