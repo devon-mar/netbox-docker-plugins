@@ -1,0 +1,31 @@
+---
+name: test
+
+"on":
+  push:
+    branches:
+      - master
+      - devel
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Clone netbox-docker
+        uses: actions/checkout@v3
+        with:
+          repository: netbox-community/netbox-docker
+          path: netbox-docker
+
+      - name: Checkout the latest netbox-docker tag
+        working-directory: ${{ github.workspace }}/netbox-docker
+        run: |
+          git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
+
+      - run: |
+          ./test/test.sh

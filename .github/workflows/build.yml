@@ -1,11 +1,16 @@
 ---
-name: build
+name: build-push
 
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+"on":
+  workflow_run:
+    workflows:
+      - test
+    types:
+      - completed
+    conclusion:
+      - success
+    branches:
+      - master
 
 jobs:
   build:
