@@ -1,4 +1,4 @@
-FROM netboxcommunity/netbox:v3.2.8
+FROM netboxcommunity/netbox:v3.3.1
 
 COPY configuration.py /etc/netbox/config/configuration.py
 RUN apt-get update \
