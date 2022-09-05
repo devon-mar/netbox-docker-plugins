@@ -1,4 +1,4 @@
-FROM netboxcommunity/netbox:v3.3.1
+FROM netboxcommunity/netbox:v3.3.2
 
 COPY configuration.py /etc/netbox/config/configuration.py
 RUN /opt/netbox/venv/bin/pip install --no-cache-dir netbox-secretstore netbox-lists \
