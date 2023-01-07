@@ -8,5 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: netbox:plugins
+    healthcheck:
+      start_period: 300s
   netbox-worker:
     image: netbox:plugins
