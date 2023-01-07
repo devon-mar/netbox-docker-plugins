@@ -29,3 +29,8 @@ jobs:
 
       - run: |
           ./test/test.sh
+
+      - name: Show Docker logs
+        if: ${{ always() }}
+        run: docker-compose logs
+        working-directory: ./netbox-docker/
