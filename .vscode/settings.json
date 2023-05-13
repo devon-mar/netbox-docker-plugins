@@ -1,5 +1,0 @@
-{
-    "yaml.schemas": {
-        "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/devonm/repos/netbox-docker-plugins/.github/workflows/build.yml"
-    }
-}
