@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Get the tag of the netbox image in the Dockerfile
         run: cat Dockerfile | grep '^FROM' | sed -n "s/^FROM.*:\(v.*\)$/::set-output name=TAG::\1/p"
