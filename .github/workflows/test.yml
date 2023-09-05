@@ -16,10 +16,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Clone netbox-docker
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: netbox-community/netbox-docker
           path: netbox-docker
