@@ -1,3 +1,3 @@
-FROM netboxcommunity/netbox:v3.6.2
+FROM netboxcommunity/netbox:v3.6.3
 
 RUN /opt/netbox/venv/bin/pip install --no-cache-dir netbox-lists netbox-kea
