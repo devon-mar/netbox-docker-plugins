@@ -16,10 +16,10 @@ cp ./test/plugins.py ./netbox-docker/configuration/plugins.py
 
 echo "::group::docker"
 
-echo "docker-compose up"
+echo "docker compose up"
 cd netbox-docker
-docker-compose build
-docker-compose up -d
+docker compose build
+docker compose up -d
 
 echo "::endgroup::"
 
@@ -36,7 +36,7 @@ set -e
 
 if [ "$CURL_RET" -ne 0 ]; then
     echo "::error NetBox failed to start."
-    docker-compose logs
+    docker compose logs
     exit $CURL_RET
 fi
 
