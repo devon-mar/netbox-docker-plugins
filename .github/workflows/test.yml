@@ -34,5 +34,5 @@ jobs:
 
       - name: Show Docker logs
         if: ${{ always() }}
-        run: docker-compose logs
+        run: docker compose logs
         working-directory: ./netbox-docker/
