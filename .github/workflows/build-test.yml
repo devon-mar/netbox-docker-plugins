@@ -32,26 +32,29 @@ jobs:
       - run: |
           ./test/test.sh
 
+      - name: Show Docker logs
+        if: ${{ always() }}
+        run: docker compose logs
+        working-directory: ./netbox-docker/
+  build:
+    runs-on: ubuntu-latest
+    if: github.event == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v4
+
       - name: Get the tag of the netbox image in the Dockerfile
         run: cat Dockerfile | grep '^FROM' | sed -n "s/^FROM.*:\(v.*\)$/::set-output name=TAG::\1/p"
         id: get_tag
 
       - name: Login to DockerHub
-        if: github.event == 'push' && github.ref == 'refs/heads/master'
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Docker images
-        if: github.event == 'push' && github.ref == 'refs/heads/master'
         uses: docker/build-push-action@v6
         with:
           context: .
           tags: devonm/netbox:${{ steps.get_tag.outputs.TAG }}
           push: true
-
-      - name: Show Docker logs
-        if: ${{ always() }}
-        run: docker compose logs
-        working-directory: ./netbox-docker/
