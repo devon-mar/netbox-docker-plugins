@@ -16,10 +16,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Clone netbox-docker
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: netbox-community/netbox-docker
           path: netbox-docker
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Get the tag of the netbox image in the Dockerfile
         run: cat Dockerfile | grep '^FROM' | sed -n "s/^FROM.*:\(v.*\)$/::set-output name=TAG::\1/p"
