@@ -1,3 +1,3 @@
-FROM netboxcommunity/netbox:v4.6.2
+FROM netboxcommunity/netbox:v4.6.3
 
 RUN /usr/local/bin/uv pip install --no-cache netbox-lists netbox-kea
